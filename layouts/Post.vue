@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <Content/>
     <Comment/>
   </div>
@@ -327,5 +327,36 @@
 
   div[class~="language-php"]:before
     content "php"
+
+  .custom-block
+  .custom-block-title
+    font-weight 600
+    margin-bottom -0.4rem
+  &.tip, &.warning, &.danger
+    padding .1rem 1.5rem
+    border-left-width .5rem
+    border-left-style solid
+    margin 1rem 0
+  &.tip
+    background-color #f3f5f7
+    border-color #42b983
+  &.warning
+    background-color rgba(255,229,100,.3)
+    border-color darken(#ffe564, 35%)
+    color darken(#ffe564, 70%)
+    .custom-block-title
+      color darken(#ffe564, 50%)
+    a
+      color $textColor
+  &.danger
+    background-color #ffe6e6
+    border-color darken(red, 20%)
+    color darken(red, 70%)
+    .custom-block-title
+      color darken(red, 40%)
+    a
+      color $textColor
+
+
 </style>
 <style src="prismjs/themes/prism-dark.css"></style>
