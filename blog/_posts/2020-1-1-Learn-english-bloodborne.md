@@ -1,13 +1,13 @@
 ---
 date: 2020-1-1
 tag: 
-  - 英文
+  - 英语学习
 author: NeroBlackstone
 location: NanChang
 summary: 宫崎老贼天下第一
 ---
 
-# 玩儿游戏也能学英文-血缘诅咒篇（一）
+# 玩儿游戏也能学英语-血缘诅咒篇
 
 人物属性：
 

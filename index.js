@@ -7,7 +7,7 @@ module.exports = {
           dirname: '_posts',
           path: '/',
           pagination: {
-            lengthPerPage: 3,
+            lengthPerPage: 5,
           },
         },
       ],

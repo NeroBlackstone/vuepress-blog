@@ -13,6 +13,9 @@
   }
 </script>
 <style lang="stylus">
+  ul,ol,li
+    list-style-type: circle
+
   html, body
     padding 0
     margin 0
