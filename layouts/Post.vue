@@ -13,6 +13,20 @@
   }
 </script>
 <style lang="stylus">
+  .number 
+    align-items: normal
+    background-color: rgba(0, 0, 0, 0)
+    border-radius: 0
+    display: inline
+    font-size: 16px
+    height: auto
+    justify-content: normal 
+    margin-right: 0
+    min-width: 0
+    padding: 0
+    text-align: left 
+    vertical-align: baseline
+
   ul,ol,li
     list-style-type: circle
 
