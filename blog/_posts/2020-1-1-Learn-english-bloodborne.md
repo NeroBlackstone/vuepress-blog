@@ -1,5 +1,5 @@
 ---
-date: 2020-1-1
+date: 2020-1-9
 tag: 
   - 英语学习
 author: NeroBlackstone
@@ -7,7 +7,7 @@ location: NanChang
 summary: 宫崎老贼天下第一
 ---
 
-# 玩儿游戏也能学英语-血缘诅咒篇
+# 玩儿游戏也能学英语-血源诅咒篇
 
 人物属性：
 
@@ -29,15 +29,13 @@ summary: 宫崎老贼天下第一
 
 >passive adj.被动 accepting or allowing what happens or what others do, without active response or resistance.
 
-例句
->Ordinary, happy upbringing. 
+Ordinary, happy upbringing. 
 
 普通，快乐地成长
 
 >upbringing n.教养 the treatment and instruction received by a child from its parents throughout its childhood
 
-例句
->Lone survivor of lost hamlet.High life essence and vigour.
+Lone survivor of lost hamlet.High life essence and vigour.
 
 失落村庄的孤独幸存者。非常具有活力。
 
@@ -47,5 +45,30 @@ summary: 宫崎老贼天下第一
 
 
 Highly resilient as a result.
-resilient adj.弹性的
-(of a substance or object) able to recoil or spring back into shape after bending, stretching, or being compressed
+
+有很强的适应力
+
+>resilient adj.弹性的 (of a substance or object) able to recoil or spring back into shape after bending, stretching, or being compressed
+
+>substance n.物质 a particular kind of matter with uniform properties.
+
+>recoil v.畏缩 n.后坐力 suddenly spring or flinch back in fear, horror, or disgust.
+
+>flinch n.退缩 make a quick, nervous movement of the face or body as an instinctive reaction to surprise, fear or pain.
+
+>instinctive adj.本能地 relating to or prompted by instinct; apparently unconscious or automatic.
+
+>disgust n.厌恶 a feeling of revulsion or profound disapproval aroused by something unpleasant or offensive.
+
+>revulsion n.排斥 a sense of disgust and loathing.
+
+>loath n.厌恶 a feeling of intense dislike or disgust; hatred.
+
+>hatred n.仇恨 intense dislike or ill will.
+
+>bending n.弯曲 shape or force (something straight) into a curve or angle.
+
+Noble Scion
+scion n.继承人 a descendant of a notable family
+
+descendant n.后辈 a person, plant, or animal that is descended from a particular ancestor.
