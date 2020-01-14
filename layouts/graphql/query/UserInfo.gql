@@ -1,0 +1,5 @@
+query UserInfo($userId:String!){
+  user(login:$userId){
+    bio
+  }
+}

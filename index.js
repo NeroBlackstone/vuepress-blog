@@ -23,6 +23,17 @@ module.exports = {
             perPagePosts: 3
           }
         },
+        {
+          id: "friends",
+          keys: ['friends'],
+          path: '/friends/',
+          layout: 'Friends',
+          frontmatter: { title: 'Friends' },
+          itemlayout: 'Friends',
+          pagination: {
+            perPagePosts: 3
+          }
+        }
       ]
     }],
   ],
