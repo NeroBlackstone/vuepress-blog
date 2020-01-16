@@ -13,7 +13,7 @@
   }
 </script>
 <style lang="stylus">
-  p
+  p,ul,ol
     margin-top 1rem
     margin-bottom 1rem
 
@@ -31,8 +31,8 @@
     text-align left 
     vertical-align baseline
 
-  ul,ol,li
-    list-style-type circle
+  ul
+    list-style-type disc
 
   html, body
     padding 0

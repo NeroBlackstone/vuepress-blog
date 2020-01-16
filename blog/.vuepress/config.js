@@ -1,14 +1,6 @@
 module.exports = {
   title: "NeroBlackstone's Blog",
   theme: require.resolve('../../'),
-  chainWebpack: config => {
-    config.module
-        .rule('graphql')
-        .test(/\.(graphql|gql)$/)
-        .use('graphql-tag/loader')
-        .loader('graphql-tag/loader')
-        .end();
-  },
   themeConfig:{
     modifyBlogPluginOptions (blogPluginOptions) {
       const sitemap = {

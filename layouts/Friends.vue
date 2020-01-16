@@ -1,12 +1,10 @@
 <template>
-    <FriendCard/>
+    <a href="https://blog.sgdylan.com">SgDylan</a>
 </template>
 
 <script>
-    import FriendCard from "./FriendCard";
     export default {
         name: "Friends",
-        components: {FriendCard}
     }
 </script>
 
