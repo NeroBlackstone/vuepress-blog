@@ -40,12 +40,10 @@
     background-color #fff
 
   body
-    font-family -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif
+    font-family BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial",PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun, sans-serif;
     -webkit-font-smoothing antialiased
     -moz-osx-font-smoothing grayscale
-    font-size 16px
-    color $textColor
-    background-color #FFF
+
 
   .page
     padding-left $sidebarWidth
