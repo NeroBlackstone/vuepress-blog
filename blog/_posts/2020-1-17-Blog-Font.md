@@ -33,29 +33,21 @@ body {
 
 ### "Segoe UI", "Roboto", "Oxygen", "Ubuntu"，"Cantarell","Fira Sans","Droid Sans"
 
-Segoe UI是由微软公司开发的并且广泛使用的字体，从windows vista开始使用。
-
-Roboto是为Android操作系统设计的一个无衬线字体，从android 4开始启用。
-
-Oxygen是为Linux KDE桌面环境创造的字体。
-
-Ubuntu是从ubuntu 10.10开始使用的系统字体。
-
-Cantarell是Linux GNOME桌面环境3.0版本以后的UI默认字体。
-
-Fira Sans是一个专为Firefox OS移动操作系统所设计的无衬线字体。
-
-Droid是Android 4.0系统之前的标准字体。
+- Segoe UI是由微软公司开发的并且广泛使用的字体，从windows vista开始使用。
+- Roboto是为Android操作系统设计的一个无衬线字体，从android 4开始启用。
+- Oxygen是为Linux KDE桌面环境创造的字体。
+- Ubuntu是从ubuntu 10.10开始使用的系统字体。
+- Cantarell是Linux GNOME桌面环境3.0版本以后的UI默认字体。
+- Fira Sans是一个专为Firefox OS移动操作系统所设计的无衬线字体。
+- Droid是Android 4.0系统之前的标准字体。
 
 好，基本到这里覆盖了从Mac/ios，windows，到各类linux桌面环境，android各版本，甚至还包括了firefox os这种小众设备的系统字体。如果你的设备还不是上述任何一个（讲真真有可能，因为我的小米4用过一段时间Sailfish OS），那么进入后续的fallback。
 
 ###  "Helvetica Neue", "Helvetica", "Arial"
 
-Helvetica Neue是Mac OS X El Capitan版本之前的字体。
-
-Helvetica是一种广泛使用于拉丁字母的无衬线字体。
-
-Arial是从windows 3.1开始微软windows系统自带的一个字体。
+- Helvetica Neue是Mac OS X El Capitan版本之前的字体。
+- Helvetica是一种广泛使用于拉丁字母的无衬线字体。
+- Arial是从windows 3.1开始微软windows系统自带的一个字体。
 
 ### sans-serif
 
