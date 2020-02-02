@@ -24,7 +24,7 @@
                             <a href="https://buefy.org/">
                             <b-taglist attached>
                                 <b-tag type="is-dark">buefy</b-tag>
-                                <b-tag type="is-success">0.8.9</b-tag>
+                                <b-tag type="is-success">0.8.10</b-tag>
                             </b-taglist>
                             </a>
                         </div>
