@@ -16,7 +16,7 @@
                             <a href="https://v1.vuepress.vuejs.org/">
                             <b-taglist attached>
                                 <b-tag type="is-dark">vuepress</b-tag>
-                                <b-tag type="is-info">1.2.0</b-tag>
+                                <b-tag type="is-info">1.3.0</b-tag>
                             </b-taglist>
                             </a>
                         </div>
