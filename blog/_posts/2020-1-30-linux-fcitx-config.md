@@ -1,5 +1,5 @@
 ---
-date: 2020-1-30
+date: 2020-2-15
 tag: 
   - linux
 author: NeroBlackstone
@@ -40,7 +40,7 @@ XMODIFIERS=@im=fcitx
 
 ## 中文输入法哪家强？
 
-fcitx是自带拼音输入法的！！无需安装三方拼音输入法！！
+fcitx是自带拼音输入法的！！无需安装三方拼音输入法！！（也非常不建议使用三方输入法）
 
 开启方法configure->+->取消勾选only show current language->搜索pinyin->ok。
 
@@ -54,3 +54,12 @@ sogou拼音作为一个输入法，居然要依赖qtwebkit这样的浏览器引�
 
 菜单configure->Global Config->OutPut->Candidate Word Number->候选词数（最高10个）
 
+## 如何找三方皮肤
+
+fcitx自带了dark，default，classic三个皮肤可供选择。但是有的人还想再花哨一点，那么怎么找三方皮肤呢？
+
+在包管理里搜fcitx skin就行了，可以去github项目页面预览到皮肤样式，选一个喜欢的下载即可。
+
+## 如何使用皮肤
+
+首先退出fcitx，去～/.config/fcitx/conf文件夹下找fcitx-classic-ui.config文件，找到SkinType一行，去掉#注释，改成喜欢的皮肤的名字，再打开fcitx即可。
