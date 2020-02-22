@@ -12,19 +12,12 @@
                                 </a>
                             </b-tag>
                         </div>
-                        <div class="control">
-                            <a href="https://v1.vuepress.vuejs.org/">
+                        <div class="control" v-for="library in libraries">
+                            <a :href="library.officialSite">
                             <b-taglist attached>
-                                <b-tag type="is-dark">vuepress</b-tag>
-                                <b-tag type="is-info">1.3.1</b-tag>
-                            </b-taglist>
-                            </a>
-                        </div>
-                        <div class="control">
-                            <a href="https://buefy.org/">
-                            <b-taglist attached>
-                                <b-tag type="is-dark">buefy</b-tag>
-                                <b-tag type="is-success">0.8.12</b-tag>
+                                <b-tag type="is-dark">{{library.libraryName}}</b-tag>
+                                <b-tag type="is-info">{{package.devDependencies[library.libraryName] ||
+                                    package.dependencies[library.libraryName]}}</b-tag>
                             </b-taglist>
                             </a>
                         </div>
@@ -35,8 +28,24 @@
 </template>
 
 <script>
+    import packageInfo from "../package.json"
     export default {
-        name: "BlogFooter"
+        name: "BlogFooter",
+        data:function () {
+            return {
+                 libraries:[
+                     {
+                         libraryName:'vuepress',
+                         officialSite:'https://v1.vuepress.vuejs.org/'
+                     },
+                     {
+                         libraryName:'buefy',
+                         officialSite:'https://buefy.org/'
+                     }
+                 ],
+                package:packageInfo
+            }
+        }
     }
 </script>
 
