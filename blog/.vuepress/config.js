@@ -1,6 +1,9 @@
 module.exports = {
   title: "NeroBlackstone's Blog",
   theme: require.resolve('../../'),
+  chainWebpack (config, isServer) {
+     config.module.rule('mkd').test(/\.mkd/).use('text-loader').loader('text-loader')
+  },
   themeConfig:{
     modifyBlogPluginOptions (blogPluginOptions) {
       const sitemap = {
