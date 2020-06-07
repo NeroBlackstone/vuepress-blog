@@ -1,0 +1,20 @@
+# markmap-lib
+
+## Links
+
+- <https://markmap.js.org/>
+- [GitHub](https://github.com/gera2ld/markmap-lib)
+
+## Related
+
+- [coc-markmap](https://github.com/gera2ld/coc-markmap)
+- [gatsby-remark-markmap](https://github.com/gera2ld/gatsby-remark-markmap)
+
+## Features
+
+- links
+- **inline** *styles* ~~text~~
+- multiline
+  text
+- `inline code`
+- MathJax - `\(x = {-b \pm \sqrt{b^2-4ac} \over 2a}\)`
