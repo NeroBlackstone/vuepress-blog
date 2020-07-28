@@ -32,7 +32,7 @@ redis.conf是redis的默认配置文件。在macos下，位于`/usr/local/etc/re
 
 ## 客户端访问redis-server
 
-启动客户端，直接执行redis-cli即可,如果需要多个客户端端口去连接redis-server，可以使用`redis-cli -p [portNum]`实现。
+启动客户端，直接执行`redis-cli` 即可,如果需要多个客户端端口去连接redis-server，可以使用`redis-cli -p [portNum]`实现。
 
 ## 测试客户端连接
 
@@ -75,25 +75,48 @@ key-value存储，数据类型:
 - list
 - hash
 - zset
-
-- keys * :查询当前库的所有键。
-- exists <key> :判断某个键是否存在(存在返回1，不存在返回0)
-- type <key> :查看键的类型
-- del <key> :删除某个键
-- expire <key> <seconds> :为键值设置过期时间，单位为秒
-- ttl <key> :查看还有多少秒过期，如果-1表示永不过期，-2表示已过期。
-- dbsize :查看当前数据库key的数量
-- flushdb :清空当前库数据库
-- flushall :清空全部redis库
-
+--------------------------
+- `keys *` :查询当前库的所有键。
+- `exists key` :判断某个键是否存在(存在返回1，不存在返回0)
+- `type key` :查看键的类型
+- `del key` :删除某个键
+- `expire key seconds` :为键值设置过期时间，单位为秒（再set这个key会取消过期）
+- `ttl key` :查看还有多少秒过期，如果-1表示永不过期，-2表示已过期。
+- `dbsize` :查看当前数据库key的数量
+- `flushdb` :清空当前库数据库
+- `flushall` :清空全部redis库
+---------------------------
 String类型：
 
 - string是Redis最基本的类型，一个key对应一个value
 - string类型是二进制安全的。意味着redis的string可以包含任何数据。比如jpg图片或者序列化的对象。
 - string类型是redis最基本的数据类型，一个redis中字符串value最多可以是512M
 
+---------------------------
+
+string类型操作
+
+- `set key value` 添加对应键值
+- `get key` 查询键值对
+- `append key value` 将给定的value追加到原值到末尾
+- `strlen key` 获取字符串长度
+- `setnx key` 只有在key不存在时设置key的值
+- `incr/decr key` 将key存储的数字原子+1/-1。如果为key空，先set这个key，value为0，再+1/-1 (需要存纯数字字符串)
+- `incrby/decrby key increment/decrement` 同上，但是增减offset的数值
+- `mset/mget` 取得/写入多个键值对
+- `msetnx` 写入多个键值对，但是仅在值为空时写入（一个失败，全部失败）
+- `getrange key start end`  获得string从start到end的范围,包含end的值.（end值为负值倒数第几个）
+- `setrange key offset value` 覆写key所存储的字符串值，从offset开始
+- `setex key seconds value` 设置键值的同时，设置过期时间，单位秒
+- `getset key value` 以新换旧，设置新值的同时获得旧值 
+
+---------------------------
+
 匹配partten：
 
-- * 全查
+- \* 全查
 - ? 占位符
 - *[1-2] 以括号里结尾 
+
+---------------------------
+

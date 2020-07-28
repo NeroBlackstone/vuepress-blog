@@ -29,8 +29,7 @@ Takes any string as input fixed-size output (we’ll use 256 bits)
 
 ##### Collision-free
 
-Nobody can find x and y such that
-x != y and H(x)=H(y).
+Nobody can find x and y such that x != y and H(x)=H(y).
 
 How to find a collision: Try 21^30 randomly chosen inputs 99.8% chance that two of them will collide. This works no matter what H is … but it takes too long to matter.
 
