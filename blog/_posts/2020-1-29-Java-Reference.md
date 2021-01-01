@@ -4,18 +4,20 @@ tag:
   - java
 author: NeroBlackstone
 location: NanChang
-summary: 写这篇文章的时候系统坏了．．写了两遍
+summary: java
 ---
 
-# java的强／弱／软／虚引用
+# java引用笔记
+
+## java的强／弱／软／虚引用
 
 这篇文章讨论java的四种引用类型。
 
-## 强引用
+### 强引用
 
 强引用是我们最常用的引用类型。类似val obj=Any()的引用即为强引用。任何被强引用指向的对象均不适合于GC。
 
-## 软引用
+### 软引用
 
 在jvm绝对需要内存前，软引用指向的对象不会被回收。
 
@@ -51,7 +53,7 @@ else
 // GC has cleared the instance
 ```
 
-## 弱引用
+### 弱引用
 
 **当弱引用对象不可达时，GC会将其清除。**
 
@@ -63,7 +65,7 @@ GC会优先清除弱引用，所以被引用对象将不再可达。然后这个
 
 与此同时，不可达的软引用对象将被GC回收。
 
-### 使用场景
+#### 使用场景
 
 根据java官方文档，**弱引用最常用于实现规范化的映射。** 如果某映射只有一个特定值的实例，这个映射就是规范化的。
 
@@ -77,7 +79,7 @@ GC会优先清除弱引用，所以被引用对象将不再可达。然后这个
 
 解决方法是发布者对订阅者持有弱引用，允许订阅者被垃圾回收，而不需要取消订阅。（注意这并不是完整的解决方案，它也会引入一些这里没提到的其他的问题）
 
-### 弱引用代码实例
+#### 弱引用代码实例
 
 弱引用由*java.lang.ref.WeakReference*类表示。可以通过传入需要引用的对象来初始化弱引用。也可以提供一个相关联的引用队列。
 
@@ -90,15 +92,15 @@ val weakReference2: WeakReference<*> = WeakReference(referent, referenceQueue)
 
 其余操作均与上文的软引用相同。
 
-## 虚引用
+### 虚引用
 
 **虚引用无法被直接取得。** 这也是为什么一定需要引用队列来使用虚引用。**GC执行finalize()方法后** ，虚引用会被添加到引用队列。但是这时对象示实例仍存在内存中。
 
-### 使用场景
+#### 使用场景
 
 虚引用可以用来**确定一个对象何时从内存中释放** ，我们可以等一个占空间很大的对象被移除再加载另一个对象。虚引用还可以让我们**使用自定义的finalize方法**。
 
-### 代码实例
+#### 代码实例
 
 详细讲一下上文第二个使用场景，首先需要 PhantomReference的子类定义如何清除对象的方法。
 
@@ -150,3 +152,68 @@ while (referenceQueue.poll().also { referenceFromQueue = it } != null) {
 下面for循环内确保所有虚引用已经进入引用队列。每个引用均会打印true。
 
 最后使用while循环轮讯入队引用并且执行自定义的清除工作。
+
+## WeakHashMap那些事
+
+前面有文章谈了java中的四类引用。WeakHashMap就是其中弱引用的使用实例。
+
+WeakHashMap是基于哈希散列的Map接口的实现，但是它的键是弱引用的。
+
+当这个WeakHashMap的键不再被使用时，对应整个条目会被自动删除。所以这个映射的行为与其他映射有所不同。
+
+为了了解原理，在这篇文章中将自行设计一个简单的缓存实现。但是这仅仅是为了了解这个映射的原理，请不要在代码实践中照搬。
+
+## 使用WeakHashMap做缓存
+
+假设我们想构建一个缓存来存储极大的图片对象，图片名做键名。这时候应该选择一个适当的映射实现。
+
+直接用HashMap显然不是个好主意，因为对象占空间太大了，即使有的对象不使用，它们也不会被回收GC进程从缓存中回收。
+
+因此我们需要一个允许GC自动删除无用对象的Map实现。当图片的键没有被程序使用，整个条目都会从内存中删掉。
+
+WeakHashMap就是我们想要的！下面测试WeakHashMap并且观察它的行为：
+
+``` kotlin
+val map = WeakHashMap<UniqueImageName?, BigImage?>()
+val bigImage = BigImage("image_id")
+var imageName: UniqueImageName? = UniqueImageName("name_of_big_image")
+
+map[imageName] = bigImage
+assertTrue(map.containsKey(imageName))
+
+imageName = null
+System.gc()
+
+await().atMost(10, TimeUnit.SECONDS).until(map::isEmpty)
+```
+
+先创建一个拿来存BigImage对象的WeakHashMap，我们将BigImage作为映射的值，imageName对象引用作为键。imageName将使用弱引用存于映射中。
+
+下面将imageName引用设定为null，因此不再会有引用指向bigImage对象。默认情况下，WeakHashMap会在下一次GC执行时回收没有引用的条目。
+
+之后调用System.go强制触发GC。GC结束后，WeakHashMap便会为空。
+
+``` kotlin
+val map = WeakHashMap<UniqueImageName?, BigImage?>()
+val bigImageFirst = BigImage("foo")
+var imageNameFirst: UniqueImageName? = UniqueImageName("name_of_big_image")
+
+val bigImageSecond = BigImage("foo_2")
+val imageNameSecond = UniqueImageName("name_of_big_image_2")
+
+map[imageNameFirst] = bigImageFirst
+map[imageNameSecond] = bigImageSecond
+
+assertTrue(map.containsKey(imageNameFirst))
+assertTrue(map.containsKey(imageNameSecond))
+
+imageNameFirst = null
+System.gc()
+
+await().atMost(10, TimeUnit.SECONDS)
+    .until({ map.size == 1 })
+await().atMost(10, TimeUnit.SECONDS)
+    .until({ map.containsKey(imageNameSecond) })
+```
+
+这个例子中，只有imageNameFirst设为空，而imageNameSecond引用未改变。在GC后，整个映射就剩imageNameSecond一个条目了。
